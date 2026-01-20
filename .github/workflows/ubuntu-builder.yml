@@ -21,6 +21,9 @@ env:
   _kernel_on_diet: "true"
   _kernel_work_folder: "/tmp"
   _kernel_source_folder: "/tmp"
+  _compileroptlevel: "2"
+  _ftracedisable: "true"
+  _numadisable: "true"
   # _modprobeddb: "true"
   _modprobeddb_db_path: ${{ github.workspace }}/modprobed.db
   _nofallback: "true"
@@ -47,10 +50,12 @@ jobs:
         run: sudo apt update
 
       - name: Install deps and compile kernel
-        run: yes '' | ./install.sh install
-        # run: |
-        #   mkdir -p "$PKGDEST"
-        #   echo "test" > "$PKGDEST"/linux-$_cpusched.pkg.tar.zst
+        run: ./install.sh install
+        env:
+          # Isso força o script a não pedir interação humana
+          _non_interactive: "true"
+          # Garante que o dispatcher passe o scheduler corretamente
+          _cpusched: ${{ inputs._cpusched }}
 
       - name: Cleanup useless DEB files
         run: rm -rf DEBS/*dbg*.deb DEBS/*libc-dev*.deb
