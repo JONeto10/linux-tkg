@@ -9,7 +9,7 @@ on:
 
 env:
   _processor_opt: "ivybridge"
-  _distro: "Ubuntu"
+  _distro: "Debian"
   _git_mirror: "kernel.org"
   _logging_use_script: "no"
   _install_after_building: "no"
