@@ -5,7 +5,7 @@ on:
       os:
         description: "Escolha o SO para build (fedora|ubuntu|arch)"
         required: true
-        default: fedora
+        default: ubuntu
       _cpusched:
         description: "Agendador/valor _cpusched"
         required: true
