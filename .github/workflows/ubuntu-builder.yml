@@ -8,7 +8,7 @@ on:
 
 
 env:
-  _processor_opt: "x86-64"
+  _processor_opt: "ivybridge"
   _distro: "Debian"
   _git_mirror: "kernel.org"
   _logging_use_script: "no"
