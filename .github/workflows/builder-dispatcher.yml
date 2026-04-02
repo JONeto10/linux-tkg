@@ -6,6 +6,18 @@ on:
         description: "Escolha o SO para build (fedora|ubuntu|arch)"
         required: true
         default: ubuntu
+      _cpusched:
+        description: "Agendador/valor _cpusched"
+        required: true
+        default: bore
+  workflow_call:
+    inputs:
+      os:
+        required: true
+        type: string
+      _cpusched:
+        required: true
+        type: string
 
 jobs:
   dispatch-to-fedora:
